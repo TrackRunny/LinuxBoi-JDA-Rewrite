@@ -115,6 +115,8 @@ fabric.properties
 /target/
 /build/
 /.settings/
+/.idea/
+/.gradle
 .classpath
 .project
 *.eml
