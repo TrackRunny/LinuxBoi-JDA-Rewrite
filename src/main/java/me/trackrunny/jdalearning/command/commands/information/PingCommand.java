@@ -20,6 +20,7 @@ package me.trackrunny.jdalearning.command.commands.information;
 
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
+import me.trackrunny.jdalearning.variables.Variables;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.MessageEmbed;
@@ -36,8 +37,8 @@ public class PingCommand  implements ICommand {
 
         final EmbedBuilder embedBuilder = new EmbedBuilder();
         embedBuilder.setTitle("→ Ping Command");
-        embedBuilder.setFooter("— LinuxBoi | Rewrote in JDA");
-        embedBuilder.setColor(new Color(241, 90, 36));
+        embedBuilder.setFooter(Variables.embedFooter);
+        embedBuilder.setColor(new Color(Variables.embedColor));
 
         jda.getRestPing().queue(
                 (ping) -> channel

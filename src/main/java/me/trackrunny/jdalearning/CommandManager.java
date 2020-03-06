@@ -43,6 +43,7 @@ public class CommandManager {
 
     public CommandManager() {
         addCommand(new HelpCommand(this));
+        addCommand(new UptimeCommand());
         addCommand(new PingCommand());
     }
 

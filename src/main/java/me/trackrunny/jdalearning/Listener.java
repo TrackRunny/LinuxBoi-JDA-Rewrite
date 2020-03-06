@@ -19,6 +19,7 @@
 package me.trackrunny.jdalearning;
 
 import me.duncte123.botcommons.BotCommons;
+import me.trackrunny.jdalearning.variables.Variables;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.ReadyEvent;
@@ -28,6 +29,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
+import javax.lang.model.element.VariableElement;
 import java.awt.*;
 
 public class Listener extends ListenerAdapter {
@@ -41,7 +43,7 @@ public class Listener extends ListenerAdapter {
 
         LOGGER.info("---------------JDA-LearningBot-----------------------");
         LOGGER.info("Bot is online and connected to " + bot);
-        LOGGER.info("Created by TrackRunny#0001 on Discord");
+        LOGGER.info("Created by " + Variables.owner + " on Discord");
         LOGGER.info("-----------------------------------------------------");
     }
 

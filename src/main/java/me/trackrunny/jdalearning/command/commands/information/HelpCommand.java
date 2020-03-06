@@ -22,6 +22,7 @@ import me.trackrunny.jdalearning.CommandManager;
 import me.trackrunny.jdalearning.Config;
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
+import me.trackrunny.jdalearning.variables.Variables;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -48,8 +49,8 @@ public class HelpCommand implements ICommand {
             final StringBuilder builder = new StringBuilder();
 
             embedBuilder.setTitle("→ List Of Commands!\n");
-            embedBuilder.setFooter("— LinuxBoi | Rewrote in JDA");
-            embedBuilder.setColor(new Color(241, 90, 36));
+            embedBuilder.setFooter(Variables.embedFooter);
+            embedBuilder.setColor(new Color(Variables.embedColor));
 
             manager.getCommands().stream().map(ICommand::getName).forEach(
                     (it) -> embedBuilder.setDescription(builder.append('`').append(Config.get("prefix")).append(it).append("`\n"))
