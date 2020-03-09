@@ -20,6 +20,7 @@ package me.trackrunny.jdalearning.command.commands.information;
 
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
+import me.trackrunny.jdalearning.variables.Variables;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
@@ -38,10 +39,10 @@ public class AvatarCommand implements ICommand {
         final EmbedBuilder embedBuilder = new EmbedBuilder();
 
         if (args.isEmpty() || message.getMentionedMembers().isEmpty()) {
-            embedBuilder.setTitle("Missing Arguments");
-            embedBuilder.setDescription("Usage: `j!avatar <@user>`");
-            embedBuilder.setFooter("LinuxBoi | Rewrote in JDA");
-            embedBuilder.setColor(new Color(241, 90, 36));
+            embedBuilder.setTitle("→ Missing Arguments");
+            embedBuilder.setDescription("• Usage: `j!avatar <@user>`");
+            embedBuilder.setFooter(Variables.embedFooter);
+            embedBuilder.setColor(new Color(Variables.embedColor));
             channel.sendMessage(embedBuilder.build()).queue();
             return;
         }
@@ -50,10 +51,10 @@ public class AvatarCommand implements ICommand {
         final String member_name = target.getUser().getAsTag();
         final String member_avatar = target.getUser().getEffectiveAvatarUrl() + "?size=1024";
 
-        embedBuilder.setTitle(String.format("%s's Avatar", member_name));
+        embedBuilder.setTitle(String.format("→ %s's Avatar", member_name));
         embedBuilder.setImage(member_avatar);
-        embedBuilder.setFooter("LinuxBoi | Rewrote in JDA");
-        embedBuilder.setColor(new Color(241, 90, 36));
+        embedBuilder.setFooter(Variables.embedFooter);
+        embedBuilder.setColor(new Color(Variables.embedColor));
 
         channel.sendMessage(embedBuilder.build()).queue();
     }
@@ -64,10 +65,10 @@ public class AvatarCommand implements ICommand {
 
     public MessageEmbed getHelp() {
         final EmbedBuilder embedBuilder = new EmbedBuilder();
-        embedBuilder.setTitle("Command Usage");
-        embedBuilder.setDescription("Gets a user's avatar profile picture.\nUsage: `j!avatar <@user>`");
-        embedBuilder.setFooter("LinuxBoi | Rewrote in JDA");
-        embedBuilder.setColor(new Color(241, 90, 36));
+        embedBuilder.setTitle("→ Command Usage");
+        embedBuilder.setDescription("• Gets a user's avatar profile picture.\nUsage: `j!avatar <@user>`");
+        embedBuilder.setFooter(Variables.embedFooter);
+        embedBuilder.setColor(new Color(Variables.embedColor));
         return embedBuilder.build();
     }
 }
