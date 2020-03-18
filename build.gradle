@@ -6,7 +6,7 @@ plugins {
 
 mainClassName = 'me.trackrunny.jdalearning.Bot'
 
-version '1.5.3'
+version '1.6.3'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 
