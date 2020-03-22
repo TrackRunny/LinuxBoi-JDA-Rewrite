@@ -43,8 +43,15 @@ public class CommandManager {
 
     public CommandManager() {
         addCommand(new HelpCommand(this));
+        addCommand(new AvatarCommand());
         addCommand(new UptimeCommand());
         addCommand(new PingCommand());
+        addCommand(new LinuxMemeCommand());
+        addCommand(new MemeCommand());
+        addCommand(new KickCommand());
+        addCommand(new HasteBinCommand());
+        addCommand(new IpInfoCommand());
+        addCommand(new MenuPasteCommand());
     }
 
     private void addCommand(ICommand cmd) {
