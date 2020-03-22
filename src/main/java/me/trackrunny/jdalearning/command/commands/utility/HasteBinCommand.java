@@ -69,7 +69,7 @@ public class HasteBinCommand implements ICommand {
 
     private void createHaste(String text, Consumer<String> callback) {
         Request request = WebUtils.defaultRequest()
-                .post(RequestBody.create(text.getBytes()))
+                .post(RequestBody.create(null, text.getBytes()))
                 .addHeader("Content-Type", ContentType.TEXT_HTML.getType())
                 .url(hasteBin + "documents")
                 .build();
