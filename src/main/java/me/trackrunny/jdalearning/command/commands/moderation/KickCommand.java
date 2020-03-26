@@ -20,6 +20,7 @@ package me.trackrunny.jdalearning.command.commands.moderation;
 
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
+import me.trackrunny.jdalearning.variables.Variables;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
@@ -51,10 +52,10 @@ public class KickCommand implements ICommand {
         final Member target = message.getMentionedMembers().get(0);
 
         if (!member.canInteract(target) || !member.hasPermission(Permission.KICK_MEMBERS)) {
-            embedBuilder.setTitle("Missing Permissions");
-            embedBuilder.setDescription("You do not have permissions to kick members.");
-            embedBuilder.setFooter("LinuxBoi | Rewrote in JDA");
-            embedBuilder.setColor(new Color(241, 90, 36));
+            embedBuilder.setTitle("→ Missing Permissions");
+            embedBuilder.setDescription("• You do not have permissions to kick members.");
+            embedBuilder.setFooter(Variables.embedFooter);
+            embedBuilder.setColor(new Color(Variables.embedColor));
             channel.sendMessage(embedBuilder.build()).queue();
             return;
         }
@@ -62,10 +63,10 @@ public class KickCommand implements ICommand {
         final Member bot = ctx.getSelfMember();
 
         if (!bot.canInteract(target) || !bot.hasPermission(Permission.KICK_MEMBERS)) {
-            embedBuilder.setTitle("Missing Permissions");
-            embedBuilder.setDescription("I do not have permissions to kick members.");
-            embedBuilder.setFooter("LinuxBoi | Rewrote in JDA");
-            embedBuilder.setColor(new Color(241, 90, 36));
+            embedBuilder.setTitle("→ Missing Permissions");
+            embedBuilder.setDescription("• I do not have permissions to kick members.");
+            embedBuilder.setFooter(Variables.embedFooter);
+            embedBuilder.setColor(new Color(Variables.embedColor));
             channel.sendMessage(embedBuilder.build()).queue();
             return;
         }
@@ -78,10 +79,10 @@ public class KickCommand implements ICommand {
             reason = String.join(" ", args.subList(1, args.size()));
         }
 
-        embedBuilder.setTitle("Successfully Kicked User");
-        embedBuilder.setDescription(String.format("Kicked: %s\nReason: `%s`", target
+        embedBuilder.setTitle("→ Successfully Kicked User");
+        embedBuilder.setDescription(String.format("• Kicked: %s\nReason: `%s`", target
                 .getAsMention(), reason));
-        embedBuilder.setFooter("LinuxBoi | Rewrote in JDA");
+        embedBuilder.setFooter(Variables.embedFooter);
         embedBuilder.setColor(new Color(241, 90, 36));
 
         ctx.getGuild()
@@ -96,10 +97,10 @@ public class KickCommand implements ICommand {
 
     public MessageEmbed getHelp() {
         final EmbedBuilder embedBuilder = new EmbedBuilder();
-        embedBuilder.setTitle("Command Usage");
-        embedBuilder.setDescription("Kicks a user from a guild.\nUsage: `j!kick <@user> [reason]`");
-        embedBuilder.setFooter("LinuxBoi | Rewrote in JDA");
-        embedBuilder.setColor(new Color(241, 90, 36));
+        embedBuilder.setTitle("→ Command Usage");
+        embedBuilder.setDescription("• Kicks a user from a guild.\nUsage: `j!kick <@user> [reason]`");
+        embedBuilder.setFooter(Variables.embedFooter);
+        embedBuilder.setColor(new Color(Variables.embedColor));
         return embedBuilder.build();
     }
 }

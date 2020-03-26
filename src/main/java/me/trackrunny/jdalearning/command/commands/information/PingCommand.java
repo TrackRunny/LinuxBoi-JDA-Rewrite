@@ -56,7 +56,7 @@ public class PingCommand  implements ICommand {
         final EmbedBuilder embedBuilder = new EmbedBuilder();
         embedBuilder.setTitle("→ Ping Info");
         embedBuilder.setDescription("• Shows the current bot ping");
-        embedBuilder.setFooter("— LinuxBoi | Rewrote in JDA");
+        embedBuilder.setFooter(Variables.embedFooter);
         embedBuilder.setColor(new Color(241, 90, 36));
 
         return embedBuilder.build();

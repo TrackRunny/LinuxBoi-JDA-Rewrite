@@ -66,7 +66,7 @@ public class HelpCommand implements ICommand {
         if (command == null) {
             embedBuilder.setTitle("→ Search Error");
             embedBuilder.setDescription(String.format("• No command found for %s", search));
-            embedBuilder.setFooter("— LinuxBoi | Rewrote in JDA");
+            embedBuilder.setFooter(Variables.embedFooter);
             embedBuilder.setColor(new Color(241, 90, 36));
 
             channel.sendMessage(embedBuilder.build()).queue();

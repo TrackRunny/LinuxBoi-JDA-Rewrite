@@ -26,6 +26,7 @@ import me.trackrunny.jdalearning.command.commands.information.AvatarCommand;
 import me.trackrunny.jdalearning.command.commands.information.HelpCommand;
 import me.trackrunny.jdalearning.command.commands.information.PingCommand;
 import me.trackrunny.jdalearning.command.commands.information.UptimeCommand;
+import me.trackrunny.jdalearning.command.commands.moderation.ChangePrefix;
 import me.trackrunny.jdalearning.command.commands.moderation.KickCommand;
 import me.trackrunny.jdalearning.command.commands.utility.HasteBinCommand;
 import me.trackrunny.jdalearning.command.commands.utility.IpInfoCommand;
@@ -52,6 +53,7 @@ public class CommandManager {
         addCommand(new HasteBinCommand());
         addCommand(new IpInfoCommand());
         addCommand(new MenuPasteCommand());
+        addCommand(new ChangePrefix());
     }
 
     private void addCommand(ICommand cmd) {
@@ -81,9 +83,9 @@ public class CommandManager {
         return null;
     }
 
-    public void handle(GuildMessageReceivedEvent event) {
+    void handle(GuildMessageReceivedEvent event, String prefix) {
         String[] split = event.getMessage().getContentRaw()
-                .replaceFirst("(?i)" + Pattern.quote(Config.get("prefix")), "")
+                .replaceFirst("(?i)" + Pattern.quote(prefix), "")
                 .split("\\s+");
 
         String invoke = split[0].toLowerCase();

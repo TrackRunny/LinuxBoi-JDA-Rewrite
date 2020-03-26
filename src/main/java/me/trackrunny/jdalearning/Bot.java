@@ -19,20 +19,24 @@
 package me.trackrunny.jdalearning;
 
 import me.duncte123.botcommons.web.WebUtils;
+import me.trackrunny.jdalearning.database.SQLiteDataSource;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 
 import javax.security.auth.login.LoginException;
+import java.sql.SQLException;
 
 public class Bot {
 
     public static long timeStart = 0;
 
     // - Creating constructor
-    private Bot() throws LoginException {
+    private Bot() throws LoginException, SQLException {
         WebUtils.setUserAgent("Mozilla/5.0 JDA-LearningBot#6713 / TrackRunny#0001");
+
+        SQLiteDataSource.getConnection();
 
         new JDABuilder(AccountType.BOT)
                 .setToken(Config.get("token"))
@@ -42,7 +46,7 @@ public class Bot {
                 .build();
     }
 
-    public static void main(String[] args) throws LoginException{
+    public static void main(String[] args) throws LoginException, SQLException {
         new Bot();
 
         timeStart = System.currentTimeMillis();

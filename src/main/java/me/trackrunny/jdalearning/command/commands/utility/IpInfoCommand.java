@@ -23,6 +23,7 @@ import io.ipinfo.api.model.IPResponse;
 import me.trackrunny.jdalearning.Config;
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
+import me.trackrunny.jdalearning.variables.Variables;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageEmbed;
@@ -41,10 +42,10 @@ public class IpInfoCommand implements ICommand {
         final IPInfo ipInfo = IPInfo.builder().setToken(Config.get("IP_INFO_TOKEN")).build();
 
         if (args.isEmpty()) {
-            embedBuilder.setTitle("Missing Arguments");
-            embedBuilder.setDescription("Usage: `j!ip <address>`");
-            embedBuilder.setFooter("LinuxBoi | Rewrote in JDA");
-            embedBuilder.setColor(new Color(241, 90, 36));
+            embedBuilder.setTitle("→ Missing Arguments");
+            embedBuilder.setDescription("• Usage: `j!ip <address>`");
+            embedBuilder.setFooter(Variables.embedFooter);
+            embedBuilder.setColor(new Color(Variables.embedColor));
             channel.sendMessage(embedBuilder.build()).queue();
             return;
         }
@@ -55,10 +56,10 @@ public class IpInfoCommand implements ICommand {
             final IPResponse response = ipInfo.lookupIP(message.getContentRaw().substring(5));
             final String ipAddress = String.format("`%s`", message.getContentRaw().substring(5));
 
-            embedBuilder.setTitle("IP Address Lookup");
-            embedBuilder.setColor(new Color(241, 90, 36));
-            embedBuilder.addField("IP Address", ipAddress, true);
-            embedBuilder.setFooter("LinuxBoi | Rewrote in JDA");
+            embedBuilder.setTitle("→ IP Address Lookup");
+            embedBuilder.setColor(new Color(Variables.embedColor));
+            embedBuilder.addField("• IP Address", ipAddress, true);
+            embedBuilder.setFooter(Variables.embedFooter);
 
             if (response.getLatitude() == null || response.getLongitude() == null) {
                 latitudeAndLongitude = "`Latitude and longitude not found.`";
@@ -110,8 +111,8 @@ public class IpInfoCommand implements ICommand {
 
             channel.sendMessage(embedBuilder.build()).queue();
         } catch (Exception e) {
-            embedBuilder.setTitle("Invalid IP Address");
-            embedBuilder.setDescription("Please put a valid IP Address." +
+            embedBuilder.setTitle("→ Invalid IP Address");
+            embedBuilder.setDescription("• Please put a valid IP Address." +
                                         "\nUsage: `j!ip <address>`");
             channel.sendMessage(embedBuilder.build()).queue();
         }
@@ -123,11 +124,11 @@ public class IpInfoCommand implements ICommand {
 
     public MessageEmbed getHelp() {
         final EmbedBuilder embedBuilder = new EmbedBuilder();
-        embedBuilder.setTitle("Command Usage");
-        embedBuilder.setDescription("Shows information about an IP address." +
+        embedBuilder.setTitle("→ Command Usage");
+        embedBuilder.setDescription("• Shows information about an IP address." +
                                     "\nUsage: `j!ip <address>");
-        embedBuilder.setFooter("LinuxBoi | Rewrote in JDA");
-        embedBuilder.setColor(new Color(241, 90, 36));
+        embedBuilder.setFooter(Variables.embedFooter);
+        embedBuilder.setColor(new Color(Variables.embedColor));
         return embedBuilder.build();
     }
 }

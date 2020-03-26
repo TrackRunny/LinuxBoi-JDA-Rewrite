@@ -21,6 +21,7 @@ package me.trackrunny.jdalearning.command.commands.meme;
 import me.trackrunny.jdalearning.Config;
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
+import me.trackrunny.jdalearning.variables.Variables;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -42,7 +43,7 @@ public class LinuxMemeCommand implements ICommand {
 
         embedBuilder.setTitle("→ " + reddit.getTitle());
         embedBuilder.setImage(reddit.getImageUrl());
-        embedBuilder.setFooter("— LinuxBoi | Rewrote in JDA");
+        embedBuilder.setFooter(Variables.embedFooter);
         embedBuilder.setColor(new Color(241, 90, 36));
 
         channel.sendMessage(embedBuilder.build()).queue();
@@ -59,7 +60,7 @@ public class LinuxMemeCommand implements ICommand {
 
         embedBuilder.setTitle("→ Linux Meme Info");
         embedBuilder.setDescription("• Sends a Linux Meme from Reddit.");
-        embedBuilder.setFooter("— LinuxBoi | Rewrote in JDA");
+        embedBuilder.setFooter(Variables.embedFooter);
         embedBuilder.setColor(new Color(241, 90, 36));
 
         return embedBuilder.build();

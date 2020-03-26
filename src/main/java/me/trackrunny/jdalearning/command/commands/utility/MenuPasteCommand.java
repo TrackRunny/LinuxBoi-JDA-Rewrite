@@ -20,6 +20,7 @@ package me.trackrunny.jdalearning.command.commands.utility;
 
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
+import me.trackrunny.jdalearning.variables.Variables;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -47,14 +48,14 @@ public class MenuPasteCommand implements ICommand {
 
         final EmbedBuilder embedBuilder = new EmbedBuilder();
         embedBuilder.setTitle("→ Uploaded Code");
-        embedBuilder.setFooter("— LinuxBoi | Rewrote in JDA");
-        embedBuilder.setColor(new Color(241, 90, 36));
+        embedBuilder.setColor(new Color(Variables.embedColor));
+        embedBuilder.setFooter(Variables.embedFooter);
 
         if (args.size() < 2) {
             embedBuilder.setTitle("→ Missing Arguments");
             embedBuilder.setDescription("• Usage: `j!menupaste <language> <text>`");
-            embedBuilder.setFooter("— LinuxBoi | Rewrote in JDA");
-            embedBuilder.setColor(new Color(241, 90, 36));
+            embedBuilder.setFooter(Variables.embedFooter);
+            embedBuilder.setColor(new Color(Variables.embedColor));
 
             channel.sendMessage(embedBuilder.build()).queue();
             return;
@@ -81,8 +82,8 @@ public class MenuPasteCommand implements ICommand {
         embedBuilder.setTitle("→ Command Usage");
         embedBuilder.setDescription("• Uploads a section of code to paste.menudocs.org" +
                                     "\n• Usage: `j!menupaste <language> <text>`");
-        embedBuilder.setFooter("— LinuxBoi | Rewrote in JDA");
-        embedBuilder.setColor(new Color(241, 90, 36));
+        embedBuilder.setFooter(Variables.embedFooter);
+        embedBuilder.setColor(new Color(Variables.embedColor));
 
         return embedBuilder.build();
     }

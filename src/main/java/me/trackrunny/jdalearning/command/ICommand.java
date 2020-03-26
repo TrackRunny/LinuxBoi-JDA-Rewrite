@@ -20,7 +20,6 @@ package me.trackrunny.jdalearning.command;
 
 import net.dv8tion.jda.api.entities.MessageEmbed;
 
-import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 

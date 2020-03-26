@@ -69,6 +69,7 @@ public class AvatarCommand implements ICommand {
         embedBuilder.setDescription("• Gets a user's avatar profile picture.\nUsage: `j!avatar <@user>`");
         embedBuilder.setFooter(Variables.embedFooter);
         embedBuilder.setColor(new Color(Variables.embedColor));
+
         return embedBuilder.build();
     }
 }

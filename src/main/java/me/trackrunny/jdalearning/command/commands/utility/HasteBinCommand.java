@@ -52,7 +52,7 @@ public class HasteBinCommand implements ICommand {
             embedBuilder.setTitle("→ Missing Arguments");
             embedBuilder.setDescription("• Usage: `j!hastebin <text>`");
             embedBuilder.setFooter(Variables.embedFooter);
-            embedBuilder.setColor(new Color(241, 90, 36));
+            embedBuilder.setColor(new Color(Variables.embedColor));
 
             channel.sendMessage(embedBuilder.build()).queue();
             return;
@@ -96,7 +96,7 @@ public class HasteBinCommand implements ICommand {
         embedBuilder.setDescription("• Uploads a section of code to hastebin" +
                                     "\n• Usage: `j!hastebin <text>`");
         embedBuilder.setFooter(Variables.embedFooter);
-        embedBuilder.setColor(new Color(241, 90, 36));
+        embedBuilder.setColor(new Color(Variables.embedColor));
 
         return embedBuilder.build();
     }

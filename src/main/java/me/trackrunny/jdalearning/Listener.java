@@ -19,6 +19,7 @@
 package me.trackrunny.jdalearning;
 
 import me.duncte123.botcommons.BotCommons;
+import me.trackrunny.jdalearning.database.SQLiteDataSource;
 import me.trackrunny.jdalearning.variables.Variables;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.User;
@@ -29,8 +30,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
-import javax.lang.model.element.VariableElement;
 import java.awt.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Listener extends ListenerAdapter {
 
@@ -42,8 +45,8 @@ public class Listener extends ListenerAdapter {
         final String bot = event.getJDA().getSelfUser().getAsTag();
 
         LOGGER.info("---------------JDA-LearningBot-----------------------");
-        LOGGER.info("Bot is online and connected to " + bot);
-        LOGGER.info("Created by " + Variables.owner + " on Discord");
+        LOGGER.info("• Bot is online and connected to " + bot);
+        LOGGER.info("• Created by " + Variables.owner + " on Discord");
         LOGGER.info("-----------------------------------------------------");
     }
 
@@ -55,7 +58,8 @@ public class Listener extends ListenerAdapter {
             return;
         }
 
-        String prefix = Config.get("prefix");
+        final long guildId = event.getGuild().getIdLong();
+        String prefix = Prefixes.PREFIXES.computeIfAbsent(guildId, this::getPrefix);
         String raw = event.getMessage().getContentRaw();
 
         if (raw.equalsIgnoreCase(prefix + "shutdown") && user.getId().equals(Config.get("owner_id"))) {
@@ -73,7 +77,35 @@ public class Listener extends ListenerAdapter {
         }
 
         if (raw.startsWith(prefix)) {
-            manager.handle(event);
+            manager.handle(event, prefix);
         }
+    }
+
+    private String getPrefix(long guildId) {
+        try (final PreparedStatement preparedStatement = SQLiteDataSource
+                .getConnection()
+                .prepareStatement("SELECT prefix FROM guild_settings WHERE guild_id = ?")) {
+
+            preparedStatement.setString(1, String.valueOf(guildId));
+
+            try (final ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    return resultSet.getString("prefix");
+                }
+            }
+
+            try (final PreparedStatement insertStatement = SQLiteDataSource
+                    .getConnection()
+                    .prepareStatement("INSERT INTO guild_settings(guild_id) VALUES(?)")) {
+
+                insertStatement.setString(1, String.valueOf(guildId));
+
+                insertStatement.execute();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return Config.get("prefix");
     }
 }
