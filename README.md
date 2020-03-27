@@ -20,6 +20,9 @@
 ### ➤ Modules
 
   * Information
+  * Moderation
+  * Utility
+  * Meme
 
 <!-- INSTALLATION HEADER -->
 ### ➤ Setup
