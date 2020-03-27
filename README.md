@@ -52,7 +52,9 @@ gradlew.bat shadowJar
 Please make sure you **create** a `.env` file in the root directory where the jar file is being ran. It should have these values.
 
 ```
-TOKEN="YOUR TOKEN"
+TOKEN="YOUR DISCORD BOT TOKEN"
+IP_INFO_TOKEN="YOUR IP INFO TOKEN"
+KSOFT_TOKEN="YOUR KSOFT TOKEN"
 OWNER_ID=YOUR OWNER ID
 PREFIX="j!"
 ```
