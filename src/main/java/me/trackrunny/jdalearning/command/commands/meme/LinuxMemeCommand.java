@@ -44,7 +44,7 @@ public class LinuxMemeCommand implements ICommand {
         embedBuilder.setTitle("→ " + reddit.getTitle());
         embedBuilder.setImage(reddit.getImageUrl());
         embedBuilder.setFooter(Variables.embedFooter);
-        embedBuilder.setColor(new Color(241, 90, 36));
+        embedBuilder.setColor(new Color(Variables.embedColor));
 
         channel.sendMessage(embedBuilder.build()).queue();
     }

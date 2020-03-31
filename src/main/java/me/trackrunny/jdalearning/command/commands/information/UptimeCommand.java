@@ -57,7 +57,7 @@ public class UptimeCommand implements ICommand {
         embedBuilder.setTitle("→ Command Usage");
         embedBuilder.setDescription("• Shows the uptime for the bot");
         embedBuilder.setFooter(Variables.embedFooter);
-        embedBuilder.setColor(new Color(241, 90, 36));
+        embedBuilder.setColor(new Color(Variables.embedColor));
 
         return embedBuilder.build();
     }

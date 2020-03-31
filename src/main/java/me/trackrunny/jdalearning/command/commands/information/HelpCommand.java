@@ -67,7 +67,7 @@ public class HelpCommand implements ICommand {
             embedBuilder.setTitle("→ Search Error");
             embedBuilder.setDescription(String.format("• No command found for %s", search));
             embedBuilder.setFooter(Variables.embedFooter);
-            embedBuilder.setColor(new Color(241, 90, 36));
+            embedBuilder.setColor(new Color(Variables.embedColor));
 
             channel.sendMessage(embedBuilder.build()).queue();
             return;
@@ -87,8 +87,8 @@ public class HelpCommand implements ICommand {
         embedBuilder.setTitle("→ Command Usage");
         embedBuilder.setDescription("• Shows help for each command " +
                                     "Example: `j!help <command>`");
-        embedBuilder.setFooter("— LinuxBoi | Rewrote in JDA");
-        embedBuilder.setColor(new Color(241, 90, 36));
+        embedBuilder.setFooter(Variables.embedFooter);
+        embedBuilder.setColor(new Color(Variables.embedColor));
 
         return embedBuilder.build();
     }
