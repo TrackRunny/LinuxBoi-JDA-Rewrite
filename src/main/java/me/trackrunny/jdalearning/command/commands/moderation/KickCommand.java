@@ -41,8 +41,8 @@ public class KickCommand implements ICommand {
         final EmbedBuilder embedBuilder = new EmbedBuilder();
 
         if (args.size() < 1 || message.getMentionedMembers().isEmpty()) {
-            embedBuilder.setTitle("Missing Arguments");
-            embedBuilder.setDescription("Usage: `j!kick <@user> [reason]`");
+            embedBuilder.setTitle("→ Missing Arguments");
+            embedBuilder.setDescription("• Usage: `j!kick <@user> [reason]`");
             embedBuilder.setFooter(Variables.embedFooter);
             embedBuilder.setColor(new Color(Variables.embedColor));
             channel.sendMessage(embedBuilder.build()).queue();
@@ -80,8 +80,7 @@ public class KickCommand implements ICommand {
         }
 
         embedBuilder.setTitle("→ Successfully Kicked User");
-        embedBuilder.setDescription(String.format("• Kicked: %s\nReason: `%s`", target
-                .getAsMention(), reason));
+        embedBuilder.setDescription(String.format("• Kicked: %s\nReason: `%s`", target.getAsMention(), reason));
         embedBuilder.setFooter(Variables.embedFooter);
         embedBuilder.setColor(new Color(Variables.embedColor));
 

@@ -26,6 +26,7 @@ import me.trackrunny.jdalearning.command.commands.information.AvatarCommand;
 import me.trackrunny.jdalearning.command.commands.information.HelpCommand;
 import me.trackrunny.jdalearning.command.commands.information.PingCommand;
 import me.trackrunny.jdalearning.command.commands.information.UptimeCommand;
+import me.trackrunny.jdalearning.command.commands.moderation.BanCommand;
 import me.trackrunny.jdalearning.command.commands.moderation.ChangePrefix;
 import me.trackrunny.jdalearning.command.commands.moderation.KickCommand;
 import me.trackrunny.jdalearning.command.commands.utility.HasteBinCommand;
@@ -50,6 +51,7 @@ public class CommandManager {
         addCommand(new LinuxMemeCommand());
         addCommand(new MemeCommand());
         addCommand(new KickCommand());
+        addCommand(new BanCommand());
         addCommand(new HasteBinCommand());
         addCommand(new IpInfoCommand());
         addCommand(new MenuPasteCommand());
