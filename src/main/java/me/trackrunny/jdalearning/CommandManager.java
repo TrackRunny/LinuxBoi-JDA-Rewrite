@@ -20,12 +20,13 @@ package me.trackrunny.jdalearning;
 
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
-import me.trackrunny.jdalearning.command.commands.meme.LinuxMemeCommand;
-import me.trackrunny.jdalearning.command.commands.meme.MemeCommand;
+import me.trackrunny.jdalearning.command.commands.fun.MathCommand;
 import me.trackrunny.jdalearning.command.commands.information.AvatarCommand;
 import me.trackrunny.jdalearning.command.commands.information.HelpCommand;
 import me.trackrunny.jdalearning.command.commands.information.PingCommand;
 import me.trackrunny.jdalearning.command.commands.information.UptimeCommand;
+import me.trackrunny.jdalearning.command.commands.meme.LinuxMemeCommand;
+import me.trackrunny.jdalearning.command.commands.meme.MemeCommand;
 import me.trackrunny.jdalearning.command.commands.moderation.BanCommand;
 import me.trackrunny.jdalearning.command.commands.moderation.ChangePrefix;
 import me.trackrunny.jdalearning.command.commands.moderation.KickCommand;
@@ -55,6 +56,7 @@ public class CommandManager {
         addCommand(new HasteBinCommand());
         addCommand(new IpInfoCommand());
         addCommand(new MenuPasteCommand());
+        addCommand(new MathCommand());
         addCommand(new ChangePrefix());
     }
 
