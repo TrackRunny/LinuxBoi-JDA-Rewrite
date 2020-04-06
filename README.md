@@ -22,6 +22,7 @@
   * Information
   * Moderation
   * Utility
+  * Fun
   * Meme
 
 <!-- INSTALLATION HEADER -->
