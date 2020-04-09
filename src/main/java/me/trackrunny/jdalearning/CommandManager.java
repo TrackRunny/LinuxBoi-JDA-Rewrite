@@ -20,7 +20,7 @@ package me.trackrunny.jdalearning;
 
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
-import me.trackrunny.jdalearning.command.commands.fun.MathCommand;
+import me.trackrunny.jdalearning.command.commands.information.InviteCommand;
 import me.trackrunny.jdalearning.command.commands.information.AvatarCommand;
 import me.trackrunny.jdalearning.command.commands.information.HelpCommand;
 import me.trackrunny.jdalearning.command.commands.information.PingCommand;
@@ -56,7 +56,7 @@ public class CommandManager {
         addCommand(new HasteBinCommand());
         addCommand(new IpInfoCommand());
         addCommand(new MenuPasteCommand());
-        addCommand(new MathCommand());
+        addCommand(new InviteCommand());
         addCommand(new ChangePrefix());
     }
 

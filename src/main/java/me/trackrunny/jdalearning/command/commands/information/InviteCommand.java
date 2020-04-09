@@ -1,4 +1,4 @@
-package me.trackrunny.jdalearning.command.commands.fun;
+package me.trackrunny.jdalearning.command.commands.information;
 
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
@@ -12,7 +12,7 @@ import net.dv8tion.jda.api.entities.MessageEmbed;
 import java.awt.*;
 import java.util.List;
 
-public class MathCommand implements ICommand {
+public class InviteCommand implements ICommand {
     private static final String invite = "(http://bit.ly/2Zm5XyP)";
 
     @Override
