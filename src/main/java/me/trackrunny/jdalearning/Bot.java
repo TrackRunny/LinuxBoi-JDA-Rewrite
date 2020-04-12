@@ -38,11 +38,10 @@ public class Bot {
 
         SQLiteDataSource.getConnection();
 
-        new JDABuilder(AccountType.BOT)
-                .setToken(Config.get("token"))
+        JDABuilder.createDefault(Config.get("token"))
                 .addEventListeners(new Listener())
-                .setActivity(Activity.watching("Gradle 6.1 — \uD83D\uDC18"))
-                .setStatus(OnlineStatus.DO_NOT_DISTURB)
+                .setActivity(Activity.watching("Gradle 6.3 — \uD83D\uDC18"))
+                .setStatus(OnlineStatus.ONLINE)
                 .build();
     }
 
