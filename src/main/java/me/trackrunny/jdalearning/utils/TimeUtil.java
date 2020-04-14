@@ -20,7 +20,7 @@ package me.trackrunny.jdalearning.utils;
 
 import java.util.concurrent.TimeUnit;
 
-public class Time {
+public class TimeUtil {
     public static String formatTime(Long time) {
         TimeUnit u = TimeUnit.MILLISECONDS;
 

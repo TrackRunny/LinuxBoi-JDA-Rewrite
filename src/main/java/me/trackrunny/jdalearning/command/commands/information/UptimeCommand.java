@@ -21,7 +21,7 @@ package me.trackrunny.jdalearning.command.commands.information;
 import me.trackrunny.jdalearning.Bot;
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
-import me.trackrunny.jdalearning.utils.Time;
+import me.trackrunny.jdalearning.utils.TimeUtil;
 import me.trackrunny.jdalearning.variables.Variables;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
@@ -41,7 +41,7 @@ public class UptimeCommand implements ICommand {
         embedBuilder.setFooter(Variables.embedFooter);
         embedBuilder.setColor(new Color(Variables.embedColor));
 
-        final String uptime = Time.formatTime(System.currentTimeMillis() - Bot.timeStart);
+        final String uptime = TimeUtil.formatTime(System.currentTimeMillis() - Bot.timeStart);
         embedBuilder.setDescription(String.format("• %s", uptime));
         channel.sendMessage(embedBuilder.build()).queue();
     }
