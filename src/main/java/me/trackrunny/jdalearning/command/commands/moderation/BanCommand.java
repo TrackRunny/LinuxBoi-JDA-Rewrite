@@ -75,7 +75,7 @@ public class BanCommand implements ICommand {
         embedBuilder.setColor(new Color(Variables.embedColor));
 
         ctx.getGuild()
-                .ban(target, 10)
+                .ban(target, 7)
                 .reason(reason)
                 .queue(__ -> channel.sendMessage(embedBuilder.build()).queue());
     }
