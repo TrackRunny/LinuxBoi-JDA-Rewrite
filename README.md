@@ -6,7 +6,7 @@
 
 <!-- BADGES -->
   ![OpenJDK Versions](https://img.shields.io/badge/OpenJDK-8%20--%2011-orange?style=flat-square)
-  ![JDA Version](https://img.shields.io/badge/JDA-4.1.1.137-orange?style=flat-square)
+  ![JDA Version](https://img.shields.io/badge/JDA-4.1.1.139-orange?style=flat-square)
   ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)
 
 <!-- KEY INFORMATION HEADER -->
