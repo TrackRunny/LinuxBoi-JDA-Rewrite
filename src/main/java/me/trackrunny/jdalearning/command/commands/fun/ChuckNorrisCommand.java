@@ -12,7 +12,7 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import java.awt.*;
 import java.util.List;
 
-public class ChuckNorisCommand implements ICommand {
+public class ChuckNorrisCommand implements ICommand {
     @Override
     public void handle(CommandContext ctx) {
         final List<String> args = ctx.getArgs();
