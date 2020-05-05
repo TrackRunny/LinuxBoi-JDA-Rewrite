@@ -24,7 +24,7 @@ dependencies {
     implementation group: 'io.ipinfo', name: 'ipinfo-api', version: '1.1'
     implementation group: 'net.explodingbus' + 'h.KSoft4J', name: 'KSoft4J', version: '1.0.6'
     implementation group: 'com.zaxxer', name: 'HikariCP', version: '3.4.3'
-    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.30.1'
+    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.31.1'
 }
 
 shadowJar {
