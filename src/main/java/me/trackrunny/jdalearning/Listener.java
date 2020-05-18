@@ -24,6 +24,7 @@ import me.trackrunny.jdalearning.variables.Variables;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.ReadyEvent;
+import net.dv8tion.jda.api.events.guild.GuildJoinEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.slf4j.Logger;
@@ -79,6 +80,16 @@ public class Listener extends ListenerAdapter {
         if (raw.startsWith(prefix)) {
             manager.handle(event, prefix);
         }
+    }
+
+    @Override
+    public void onGuildJoin(@Nonnull GuildJoinEvent event) {
+        final EmbedBuilder embedBuilder =  new EmbedBuilder();
+        embedBuilder.setTitle("→ Thanks for inviting me!");
+        embedBuilder.setDescription("• Please use `l!commands` to see all commands.");
+        embedBuilder.setColor(Variables.embedColor);
+
+        event.getGuild().getDefaultChannel().sendMessage(embedBuilder.build()).queue();
     }
 
     private String getPrefix(long guildId) {
