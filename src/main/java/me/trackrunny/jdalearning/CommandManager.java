@@ -21,6 +21,7 @@ package me.trackrunny.jdalearning;
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
 import me.trackrunny.jdalearning.command.commands.fun.ChuckNorrisCommand;
+import me.trackrunny.jdalearning.command.commands.fun.CowsayCommand;
 import me.trackrunny.jdalearning.command.commands.fun.MathCommand;
 import me.trackrunny.jdalearning.command.commands.information.InviteCommand;
 import me.trackrunny.jdalearning.command.commands.information.AvatarCommand;
@@ -64,6 +65,7 @@ public class CommandManager {
         addCommand(new MathCommand());
         addCommand(new ChuckNorrisCommand());
         addCommand(new WikiHowCommand());
+        addCommand(new CowsayCommand());
     }
 
     private void addCommand(ICommand cmd) {
