@@ -74,4 +74,3 @@ Everything is now set up. To start the bot you can do `java -jar jarfilename.jar
 ## ➤ Questions / Contact me
 
   * Discord Account: `TrackRunny#0001`
-  * Email: `trackrunny@protonmail.com`
