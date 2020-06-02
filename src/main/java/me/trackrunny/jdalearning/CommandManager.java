@@ -34,6 +34,7 @@ import me.trackrunny.jdalearning.command.commands.meme.WikiHowCommand;
 import me.trackrunny.jdalearning.command.commands.moderation.BanCommand;
 import me.trackrunny.jdalearning.command.commands.moderation.ChangePrefix;
 import me.trackrunny.jdalearning.command.commands.moderation.KickCommand;
+import me.trackrunny.jdalearning.command.commands.utility.BitcoinCommand;
 import me.trackrunny.jdalearning.command.commands.utility.HasteBinCommand;
 import me.trackrunny.jdalearning.command.commands.utility.IpInfoCommand;
 import me.trackrunny.jdalearning.command.commands.utility.MenuPasteCommand;
@@ -66,6 +67,7 @@ public class CommandManager {
         addCommand(new ChuckNorrisCommand());
         addCommand(new WikiHowCommand());
         addCommand(new CowsayCommand());
+        addCommand(new BitcoinCommand());
     }
 
     private void addCommand(ICommand cmd) {
