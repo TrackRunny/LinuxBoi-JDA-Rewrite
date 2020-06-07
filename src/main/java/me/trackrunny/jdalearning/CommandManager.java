@@ -20,6 +20,7 @@ package me.trackrunny.jdalearning;
 
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
+import me.trackrunny.jdalearning.command.commands.fun.AdviceCommand;
 import me.trackrunny.jdalearning.command.commands.fun.ChuckNorrisCommand;
 import me.trackrunny.jdalearning.command.commands.fun.CowsayCommand;
 import me.trackrunny.jdalearning.command.commands.fun.MathCommand;
@@ -68,6 +69,7 @@ public class CommandManager {
         addCommand(new WikiHowCommand());
         addCommand(new CowsayCommand());
         addCommand(new BitcoinCommand());
+        addCommand(new AdviceCommand());
     }
 
     private void addCommand(ICommand cmd) {
