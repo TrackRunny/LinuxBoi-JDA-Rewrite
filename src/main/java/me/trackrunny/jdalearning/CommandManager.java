@@ -20,10 +20,7 @@ package me.trackrunny.jdalearning;
 
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
-import me.trackrunny.jdalearning.command.commands.fun.AdviceCommand;
-import me.trackrunny.jdalearning.command.commands.fun.ChuckNorrisCommand;
-import me.trackrunny.jdalearning.command.commands.fun.CowsayCommand;
-import me.trackrunny.jdalearning.command.commands.fun.MathCommand;
+import me.trackrunny.jdalearning.command.commands.fun.*;
 import me.trackrunny.jdalearning.command.commands.information.InviteCommand;
 import me.trackrunny.jdalearning.command.commands.information.AvatarCommand;
 import me.trackrunny.jdalearning.command.commands.information.HelpCommand;
@@ -70,6 +67,7 @@ public class CommandManager {
         addCommand(new CowsayCommand());
         addCommand(new BitcoinCommand());
         addCommand(new AdviceCommand());
+        addCommand(new JokeCommand());
     }
 
     private void addCommand(ICommand cmd) {

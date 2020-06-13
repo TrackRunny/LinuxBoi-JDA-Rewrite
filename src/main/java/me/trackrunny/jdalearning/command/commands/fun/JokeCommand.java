@@ -31,7 +31,7 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import java.awt.*;
 import java.util.List;
 
-public class AdviceCommand implements ICommand {
+public class JokeCommand implements ICommand {
     @Override
     public void handle(CommandContext ctx) {
         final List<String> args = ctx.getArgs();
@@ -39,13 +39,18 @@ public class AdviceCommand implements ICommand {
 
         final EmbedBuilder embedBuilder = new EmbedBuilder();
 
+        WebUtils.ins.getJSONObject("https://apis.duncte123.me/joke").async((json) -> {
+            if (!json.get("success").asBoolean()) {
+                channel.sendMessage("• Something did not go right! Please try again later.\"").queue();
+                System.out.println(json);
+                return;
+            }
 
-        WebUtils.ins.getJSONObject("https://api.adviceslip.com/advice").async((json) -> {
-            final JsonNode value = json.get("slip");
-            final String advice = value.get("advice").asText();
+            final JsonNode data = json.get("data");
+            final String body = data.get("body").asText();
 
-            embedBuilder.setTitle("→ Good Advice");
-            embedBuilder.setDescription(String.format("• Advice: %s", advice));
+            embedBuilder.setTitle("→ Random Joke");
+            embedBuilder.setDescription(String.format("• %s", body));
             embedBuilder.setColor(Variables.embedColor);
             embedBuilder.setFooter(Variables.embedFooter);
 
@@ -55,14 +60,14 @@ public class AdviceCommand implements ICommand {
 
     @Override
     public String getName() {
-        return "advice";
+        return "joke";
     }
 
     @Override
     public MessageEmbed getHelp() {
         final EmbedBuilder embedBuilder = new EmbedBuilder();
         embedBuilder.setTitle("→ Command Usage");
-        embedBuilder.setDescription("• Displays advice for you.");
+        embedBuilder.setDescription("• Returns a random joke");
         embedBuilder.setFooter(Variables.embedFooter);
         embedBuilder.setColor(new Color(Variables.embedColor));
 
