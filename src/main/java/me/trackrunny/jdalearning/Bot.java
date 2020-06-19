@@ -41,7 +41,7 @@ public class Bot {
 
         JDABuilder.createDefault(Config.get("token"))
                 .addEventListeners(new Listener())
-                .setActivity(Activity.watching("Gradle 6.3 — \uD83D\uDC18"))
+                .setActivity(Activity.watching("Gradle 6.4 — \uD83D\uDC18"))
                 .setStatus(OnlineStatus.ONLINE)
                 .build();
     }

@@ -29,6 +29,7 @@ import me.trackrunny.jdalearning.command.commands.information.UptimeCommand;
 import me.trackrunny.jdalearning.command.commands.meme.LinuxMemeCommand;
 import me.trackrunny.jdalearning.command.commands.meme.MemeCommand;
 import me.trackrunny.jdalearning.command.commands.meme.WikiHowCommand;
+import me.trackrunny.jdalearning.command.commands.meme.WindowsMemeCommand;
 import me.trackrunny.jdalearning.command.commands.moderation.BanCommand;
 import me.trackrunny.jdalearning.command.commands.moderation.ChangePrefix;
 import me.trackrunny.jdalearning.command.commands.moderation.KickCommand;
@@ -68,6 +69,7 @@ public class CommandManager {
         addCommand(new BitcoinCommand());
         addCommand(new AdviceCommand());
         addCommand(new JokeCommand());
+        addCommand(new WindowsMemeCommand());
     }
 
     private void addCommand(ICommand cmd) {
