@@ -22,11 +22,14 @@ import me.duncte123.botcommons.BotCommons;
 import me.trackrunny.jdalearning.database.SQLiteDataSource;
 import me.trackrunny.jdalearning.variables.Variables;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.guild.GuildJoinEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.managers.Presence;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -60,6 +63,7 @@ public class Listener extends ListenerAdapter {
         }
 
         final long guildId = event.getGuild().getIdLong();
+        final TextChannel channel = event.getChannel();
         String prefix = Prefixes.PREFIXES.computeIfAbsent(guildId, this::getPrefix);
         String raw = event.getMessage().getContentRaw();
 
@@ -73,6 +77,72 @@ public class Listener extends ListenerAdapter {
             event.getChannel().sendMessage(embedBuilder.build()).queue();
             event.getJDA().shutdown();
             BotCommons.shutdown(event.getJDA());
+
+            return;
+        }
+
+        if (raw.equalsIgnoreCase(prefix + "status online") && user.getId().equals(Config.get("owner_id"))) {
+            LOGGER.info("Changed online status");
+
+            final Presence presence = event.getJDA().getPresence();
+
+            presence.setStatus(OnlineStatus.ONLINE);
+
+            EmbedBuilder embedBuilder = new EmbedBuilder();
+            embedBuilder.setTitle("→ Changed status");
+            embedBuilder.setDescription("• Status is now set to `online`");
+            embedBuilder.setColor(Variables.embedColor);
+            embedBuilder.setFooter(Variables.embedFooter);
+
+            channel.sendMessage(embedBuilder.build()).queue();
+
+            return;
+        } else if (raw.equalsIgnoreCase(prefix + "status idle") && user.getId().equals(Config.get("owner_id"))) {
+            LOGGER.info("Changed online status");
+
+            final Presence presence = event.getJDA().getPresence();
+
+            presence.setStatus(OnlineStatus.IDLE);
+
+            EmbedBuilder embedBuilder = new EmbedBuilder();
+            embedBuilder.setTitle("→ Changed status");
+            embedBuilder.setDescription("• Status is now set to `idle`");
+            embedBuilder.setColor(Variables.embedColor);
+            embedBuilder.setFooter(Variables.embedFooter);
+
+            channel.sendMessage(embedBuilder.build()).queue();
+
+            return;
+        } else if (raw.equalsIgnoreCase(prefix + "status dnd") && user.getId().equals(Config.get("owner_id"))) {
+            LOGGER.info("Changed online status");
+
+            final Presence presence = event.getJDA().getPresence();
+
+            presence.setStatus(OnlineStatus.DO_NOT_DISTURB);
+
+            EmbedBuilder embedBuilder = new EmbedBuilder();
+            embedBuilder.setTitle("→ Changed status");
+            embedBuilder.setDescription("• Status is now set to `dnd`");
+            embedBuilder.setColor(Variables.embedColor);
+            embedBuilder.setFooter(Variables.embedFooter);
+
+            channel.sendMessage(embedBuilder.build()).queue();
+
+            return;
+        } else if (raw.equalsIgnoreCase(prefix + "status invisible") && user.getId().equals(Config.get("owner_id"))) {
+            LOGGER.info("Changed online status");
+
+            final Presence presence = event.getJDA().getPresence();
+
+            presence.setStatus(OnlineStatus.INVISIBLE);
+
+            EmbedBuilder embedBuilder = new EmbedBuilder();
+            embedBuilder.setTitle("→ Changed status");
+            embedBuilder.setDescription("• Status is now set to `invisible`");
+            embedBuilder.setColor(Variables.embedColor);
+            embedBuilder.setFooter(Variables.embedFooter);
+
+            channel.sendMessage(embedBuilder.build()).queue();
 
             return;
         }
