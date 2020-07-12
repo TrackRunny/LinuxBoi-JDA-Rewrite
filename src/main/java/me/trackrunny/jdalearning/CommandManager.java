@@ -33,10 +33,7 @@ import me.trackrunny.jdalearning.command.commands.meme.WindowsMemeCommand;
 import me.trackrunny.jdalearning.command.commands.moderation.BanCommand;
 import me.trackrunny.jdalearning.command.commands.moderation.ChangePrefix;
 import me.trackrunny.jdalearning.command.commands.moderation.KickCommand;
-import me.trackrunny.jdalearning.command.commands.utility.BitcoinCommand;
-import me.trackrunny.jdalearning.command.commands.utility.HasteBinCommand;
-import me.trackrunny.jdalearning.command.commands.utility.IpInfoCommand;
-import me.trackrunny.jdalearning.command.commands.utility.MenuPasteCommand;
+import me.trackrunny.jdalearning.command.commands.utility.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import javax.annotation.Nullable;
@@ -70,6 +67,7 @@ public class CommandManager {
         addCommand(new AdviceCommand());
         addCommand(new JokeCommand());
         addCommand(new WindowsMemeCommand());
+        addCommand(new FahrenheitToCelsiusCommand());
     }
 
     private void addCommand(ICommand cmd) {
