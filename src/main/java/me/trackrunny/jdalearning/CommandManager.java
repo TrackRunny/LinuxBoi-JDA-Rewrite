@@ -68,6 +68,7 @@ public class CommandManager {
         addCommand(new JokeCommand());
         addCommand(new WindowsMemeCommand());
         addCommand(new FahrenheitToCelsiusCommand());
+        addCommand(new CelsiusToFahrenheitCommand());
         addCommand(new PasswordCommand());
     }
 
