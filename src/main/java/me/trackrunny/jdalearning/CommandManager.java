@@ -21,15 +21,8 @@ package me.trackrunny.jdalearning;
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
 import me.trackrunny.jdalearning.command.commands.fun.*;
-import me.trackrunny.jdalearning.command.commands.information.InviteCommand;
-import me.trackrunny.jdalearning.command.commands.information.AvatarCommand;
-import me.trackrunny.jdalearning.command.commands.information.HelpCommand;
-import me.trackrunny.jdalearning.command.commands.information.PingCommand;
-import me.trackrunny.jdalearning.command.commands.information.UptimeCommand;
-import me.trackrunny.jdalearning.command.commands.meme.LinuxMemeCommand;
-import me.trackrunny.jdalearning.command.commands.meme.MemeCommand;
-import me.trackrunny.jdalearning.command.commands.meme.WikiHowCommand;
-import me.trackrunny.jdalearning.command.commands.meme.WindowsMemeCommand;
+import me.trackrunny.jdalearning.command.commands.information.*;
+import me.trackrunny.jdalearning.command.commands.meme.*;
 import me.trackrunny.jdalearning.command.commands.moderation.BanCommand;
 import me.trackrunny.jdalearning.command.commands.moderation.ChangePrefix;
 import me.trackrunny.jdalearning.command.commands.moderation.KickCommand;
@@ -70,6 +63,7 @@ public class CommandManager {
         addCommand(new FahrenheitToCelsiusCommand());
         addCommand(new CelsiusToFahrenheitCommand());
         addCommand(new PasswordCommand());
+        addCommand(new DankMemeCommand());
     }
 
     private void addCommand(ICommand cmd) {
