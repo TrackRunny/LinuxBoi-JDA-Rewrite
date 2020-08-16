@@ -64,6 +64,7 @@ public class CommandManager {
         addCommand(new CelsiusToFahrenheitCommand());
         addCommand(new PasswordCommand());
         addCommand(new DankMemeCommand());
+        addCommand(new DogFactCommand());
     }
 
     private void addCommand(ICommand cmd) {
