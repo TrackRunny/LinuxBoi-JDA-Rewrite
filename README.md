@@ -24,6 +24,7 @@
   * Utility
   * Fun
   * Meme
+  * Admin
 
 <!-- INSTALLATION HEADER -->
 ### ➤ Install and Setting up The Bot
