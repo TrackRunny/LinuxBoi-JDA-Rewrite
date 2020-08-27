@@ -18,6 +18,7 @@
 
 package me.trackrunny.jdalearning.command.commands.meme;
 
+import me.trackrunny.jdalearning.Bot;
 import me.trackrunny.jdalearning.Config;
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
@@ -38,8 +39,7 @@ public class MemeCommand implements ICommand {
 
         final EmbedBuilder embedBuilder = new EmbedBuilder();
 
-        final KSoftAPI kSoftAPI = new KSoftAPI(Config.get("KSOFT_TOKEN"));
-        final Reddit reddit = kSoftAPI.getRedditImage(ImageType.RANDOM_MEME).execute();
+        final Reddit reddit = Bot.kSoftAPI.getRedditImage(ImageType.RANDOM_MEME).execute();
 
         embedBuilder.setTitle("→ " + reddit.getTitle());
         embedBuilder.setImage(reddit.getImageUrl());

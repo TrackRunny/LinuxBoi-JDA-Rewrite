@@ -79,7 +79,8 @@ public class PasswordCommand implements ICommand {
     public MessageEmbed getHelp() {
         final EmbedBuilder embedBuilder = new EmbedBuilder();
         embedBuilder.setTitle("→ Command Usage");
-        embedBuilder.setDescription("• Generates a random password based on a certain length");
+        embedBuilder.setDescription("• Generates a random password based on a certain length" +
+                                    "\n• Usage: `j!password <length>`\"");
         embedBuilder.setFooter(Variables.embedFooter);
         embedBuilder.setColor(new Color(Variables.embedColor));
 

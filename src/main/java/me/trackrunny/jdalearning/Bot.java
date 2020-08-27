@@ -25,6 +25,7 @@ import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
+import net.explodingbush.ksoftapi.KSoftAPI;
 
 import javax.security.auth.login.LoginException;
 import java.sql.SQLException;
@@ -32,6 +33,8 @@ import java.sql.SQLException;
 public class Bot {
 
     public static long timeStart = 0;
+
+    public static final KSoftAPI kSoftAPI = new KSoftAPI(Config.get("KSOFT_TOKEN"));
 
     // - Creating constructor
     private Bot() throws LoginException, SQLException {
