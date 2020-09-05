@@ -27,9 +27,11 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.guild.GuildJoinEvent;
+import net.dv8tion.jda.api.events.guild.GuildLeaveEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.managers.Presence;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -160,6 +162,11 @@ public class Listener extends ListenerAdapter {
         embedBuilder.setColor(Variables.embedColor);
 
         event.getGuild().getDefaultChannel().sendMessage(embedBuilder.build()).queue();
+    }
+
+    @Override
+    public void onGuildLeave(@NotNull GuildLeaveEvent event) {
+        LOGGER.info(String.format("Left guild: %s", event.getGuild().getName()));
     }
 
     private String getPrefix(long guildId) {
