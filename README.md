@@ -24,6 +24,7 @@
   * Utility
   * Fun
   * Meme
+  * Image
   * Admin
 
 <!-- INSTALLATION HEADER -->
