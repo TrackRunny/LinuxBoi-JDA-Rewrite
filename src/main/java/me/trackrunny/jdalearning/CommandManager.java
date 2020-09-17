@@ -21,6 +21,7 @@ package me.trackrunny.jdalearning;
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
 import me.trackrunny.jdalearning.command.commands.fun.*;
+import me.trackrunny.jdalearning.command.commands.image.TrumpTweet;
 import me.trackrunny.jdalearning.command.commands.image.TweetCommand;
 import me.trackrunny.jdalearning.command.commands.information.*;
 import me.trackrunny.jdalearning.command.commands.meme.*;
@@ -68,6 +69,7 @@ public class CommandManager {
         addCommand(new DogFactCommand());
         addCommand(new WeatherCommand());
         addCommand(new TweetCommand());
+        addCommand(new TrumpTweet());
     }
 
     private void addCommand(ICommand cmd) {

@@ -1,6 +1,5 @@
 package me.trackrunny.jdalearning.command.commands.image;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import me.duncte123.botcommons.web.WebUtils;
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
@@ -12,7 +11,7 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import java.awt.*;
 import java.util.List;
 
-public class TweetCommand implements ICommand {
+public class TrumpTweet implements ICommand {
     @Override
     public void handle(CommandContext ctx) {
         final List<String> args = ctx.getArgs();
@@ -22,7 +21,7 @@ public class TweetCommand implements ICommand {
 
         if (args.isEmpty()) {
             embedBuilder.setTitle("→ Missing Arguments");
-            embedBuilder.setDescription("• Usage: `j!tweet <text>`");
+            embedBuilder.setDescription("• Usage: `j!trumptweet <text>`");
             embedBuilder.setFooter(Variables.embedFooter);
             embedBuilder.setColor(Variables.embedColor);
 
@@ -30,9 +29,9 @@ public class TweetCommand implements ICommand {
             return;
         }
 
-        final String tweet = args.get(0);
+        final String text = args.get(0);
 
-        WebUtils.ins.getJSONObject(String.format("https://nekobot.xyz/api/imagegen?type=tweet&username=%s&text=%s", ctx.getAuthor().getName(), tweet)).async((json) -> {
+        WebUtils.ins.getJSONObject(String.format("https://nekobot.xyz/api/imagegen?type=trumptweet&text=%s", text)).async((json) -> {
             if (!json.get("success").asBoolean()) {
                 channel.sendMessage("Something went wrong while trying to make a tweet").queue();
                 return;
@@ -40,7 +39,7 @@ public class TweetCommand implements ICommand {
 
             final String image = json.get("message").asText();
 
-            embedBuilder.setTitle("→ New Viral Tweet");
+            embedBuilder.setTitle("→ New TrumpTweet");
             embedBuilder.setImage(image);
             embedBuilder.setColor(Variables.embedColor);
             embedBuilder.setFooter(Variables.embedFooter);
@@ -51,15 +50,14 @@ public class TweetCommand implements ICommand {
 
     @Override
     public String getName() {
-        return "tweet";
+        return "trumptweet";
     }
 
     @Override
     public MessageEmbed getHelp() {
         final EmbedBuilder embedBuilder = new EmbedBuilder();
         embedBuilder.setTitle("→ Command Usage");
-        embedBuilder.setDescription("• Kicks a user from a guild." +
-                                    "\nUsage: `j!tweet [message]`");
+        embedBuilder.setDescription("• Sends a trump tweet image.\nUsage: `j!trumptweet <text>`");
         embedBuilder.setFooter(Variables.embedFooter);
         embedBuilder.setColor(new Color(Variables.embedColor));
 
