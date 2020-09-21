@@ -10,6 +10,8 @@ version '1.28.10'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 
+compileJava.options.encoding = 'UTF-8'
+
 repositories {
     jcenter()
 }
@@ -36,5 +38,3 @@ shadowJar {
 
     mergeServiceFiles()
 }
-
-compileJava.options.encoding = 'UTF-8'
