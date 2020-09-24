@@ -48,7 +48,7 @@ cd LinuxBoi-JDA-Rewrite
 <!-- Use this if you are on Mac OS X or Linux -->
 
 gradlew.bat shadowJar
-<!-- Use this if you are on windows -->
+<!-- Use this if you are on Windows -->
 ```
 
 * Congratulations, you should now have a jar located in `build/libs` directory.
