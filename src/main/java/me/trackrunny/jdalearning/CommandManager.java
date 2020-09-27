@@ -70,6 +70,7 @@ public class CommandManager {
         addCommand(new WeatherCommand());
         addCommand(new TweetCommand());
         addCommand(new TrumpTweet());
+        addCommand(new EdgyMemeCommand());
     }
 
     private void addCommand(ICommand cmd) {
