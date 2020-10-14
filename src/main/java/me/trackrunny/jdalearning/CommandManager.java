@@ -73,6 +73,7 @@ public class CommandManager {
         addCommand(new TrumpTweet());
         addCommand(new EdgyMemeCommand());
         addCommand(new ChangeMyMindCommand());
+        addCommand(new ProgrammerMemeCommand());
     }
 
     private void addCommand(ICommand cmd) {
