@@ -36,8 +36,9 @@ public class Bot {
 
     public static final KSoftAPI kSoftAPI = new KSoftAPI(Config.get("KSOFT_TOKEN"));
 
-    // - Creating constructor
-    private Bot() throws LoginException, SQLException {
+    public static void main(String[] args) throws LoginException, SQLException {
+        timeStart = System.currentTimeMillis();
+        
         WebUtils.setUserAgent("Mozilla/5.0 JDA-LearningBot#6713 / TrackRunny#0001");
 
         SQLiteDataSource.getConnection();
@@ -48,10 +49,5 @@ public class Bot {
                 .setStatus(OnlineStatus.ONLINE)
                 .build();
     }
-
-    public static void main(String[] args) throws LoginException, SQLException {
-        new Bot();
-
-        timeStart = System.currentTimeMillis();
-    }
+    
 }
