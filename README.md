@@ -26,6 +26,7 @@
   * Meme
   * Image
   * Admin
+  * Owner
 
 <!-- INSTALLATION HEADER -->
 ### ➤ Install and Setting up The Bot
