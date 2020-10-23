@@ -13,8 +13,8 @@
 ## ➤ Important Information
 
   * Rewrite for my [**LinuxBoi**](https://github.com/TrackRunny/LinuxBoi) Python bot in Java
-  * Mostly doing this to learn the JDA library
-  * Not all commands will be added
+  * Creating this bot to learn the JDA library
+  * Not all commands will be re-wrote
 
 <!-- MODULES HEADER -->
 ### ➤ Modules
