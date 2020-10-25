@@ -49,5 +49,4 @@ public class Bot {
                 .setStatus(OnlineStatus.ONLINE)
                 .build();
     }
-    
 }

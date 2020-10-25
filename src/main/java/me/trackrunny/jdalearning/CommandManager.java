@@ -74,6 +74,7 @@ public class CommandManager {
         addCommand(new EdgyMemeCommand());
         addCommand(new ChangeMyMindCommand());
         addCommand(new ProgrammerMemeCommand());
+        addCommand(new KoalaFactCommand());
     }
 
     private void addCommand(ICommand cmd) {
