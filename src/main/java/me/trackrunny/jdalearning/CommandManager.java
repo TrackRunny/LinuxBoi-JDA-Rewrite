@@ -21,6 +21,7 @@ package me.trackrunny.jdalearning;
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
 import me.trackrunny.jdalearning.command.commands.fun.*;
+import me.trackrunny.jdalearning.command.commands.image.CaptchaCommand;
 import me.trackrunny.jdalearning.command.commands.image.ChangeMyMindCommand;
 import me.trackrunny.jdalearning.command.commands.image.TrumpTweet;
 import me.trackrunny.jdalearning.command.commands.image.TweetCommand;
@@ -75,6 +76,7 @@ public class CommandManager {
         addCommand(new ChangeMyMindCommand());
         addCommand(new ProgrammerMemeCommand());
         addCommand(new KoalaFactCommand());
+        addCommand(new CaptchaCommand());
     }
 
     private void addCommand(ICommand cmd) {
