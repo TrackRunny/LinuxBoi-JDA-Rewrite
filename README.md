@@ -25,7 +25,6 @@
   * Fun
   * Meme
   * Image
-  * Admin
   * Owner
 
 <!-- INSTALLATION HEADER -->
