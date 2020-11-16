@@ -77,6 +77,7 @@ public class CommandManager {
         addCommand(new ProgrammerMemeCommand());
         addCommand(new KoalaFactCommand());
         addCommand(new CaptchaCommand());
+        addCommand(new McpeCommand());
     }
 
     private void addCommand(ICommand cmd) {

@@ -16,8 +16,9 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.     *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-package me.trackrunny.jdalearning.command.commands.information;
+package me.trackrunny.jdalearning.command.commands.utility;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import me.duncte123.botcommons.web.WebUtils;
 import me.trackrunny.jdalearning.command.CommandContext;
 import me.trackrunny.jdalearning.command.ICommand;
@@ -29,43 +30,65 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import java.awt.*;
 import java.util.List;
 
-public class KoalaFactCommand implements ICommand {
+public class McpeCommand implements ICommand {
     @Override
     public void handle(CommandContext ctx) {
         final List<String> args = ctx.getArgs();
-        final TextChannel channel = ctx.getChannel();
+        final TextChannel textChannel = ctx.getChannel();
 
         final EmbedBuilder embedBuilder = new EmbedBuilder();
 
-        WebUtils.ins.getJSONObject("https://some-random-api.ml/facts/koala").async((json) -> {
-            if (!json.get("fact").isEmpty()) {
-                channel.sendMessage("• Something did not go right! Please try again later.\"").queue();
-                System.out.println(json);
+        if (args.isEmpty() || args.size() < 2) {
+            embedBuilder.setTitle("→ Missing Arguments");
+            embedBuilder.setDescription("• Usage: `j!mcpe <server> <port>`");
+            embedBuilder.setFooter(Variables.embedFooter);
+            embedBuilder.setColor(new Color(Variables.embedColor));
+
+            textChannel.sendMessage(embedBuilder.build()).queue();
+            return;
+        }
+
+        final String server = ctx.getArgs().get(0);
+        final String port = ctx.getArgs().get(1);
+
+        WebUtils.ins.getJSONObject(String.format("https://mcapi.us/server/query?ip=%s&port=%s", server, port)).async((json) -> {
+            if (!json.get("status").asText().equals("success")) {
+                textChannel.sendMessage("I was not able to query the server successfully").queue();
                 return;
             }
 
-            final String fact = json.get("fact").asText();
+            final JsonNode playerInfo = json.get("players");
 
-            embedBuilder.setTitle("→ Koala Fact");
-            embedBuilder.setDescription(String.format("• %s", fact));
+            final String players = String.format("%s/%s", playerInfo.get("now").asText(), playerInfo.get("max").asText());
+            final String map = json.get("map").asText();
+            final String version = json.get("version").asText();
+            final String software = json.get("server_mod").asText();
+            final String motd = json.get("hostname").asText();
+
+            embedBuilder.setTitle("→ Server Status");
+            embedBuilder.addField("• Address", server, true);
+            embedBuilder.addField("• Port", port, true);
+            embedBuilder.addField("• Players", players, true);
+            embedBuilder.addField("• Map", map, true);
+            embedBuilder.addField("• Version", version, true);
+            embedBuilder.addField("• Software", software, true);
+            embedBuilder.addField("• MOTD", motd, false);
             embedBuilder.setColor(Variables.embedColor);
-            embedBuilder.setFooter(Variables.embedFooter);
 
-            channel.sendMessage(embedBuilder.build()).queue();
+            textChannel.sendMessage(embedBuilder.build()).queue();
         });
     }
 
     @Override
     public String getName() {
-        return "koalafact";
+        return "mcpe";
     }
 
     @Override
     public MessageEmbed getHelp() {
         final EmbedBuilder embedBuilder = new EmbedBuilder();
         embedBuilder.setTitle("→ Command Usage");
-        embedBuilder.setDescription("• Gets a random koala fact.\nUsage: `j!koalafact`");
-        embedBuilder.setFooter(Variables.embedFooter);
+        embedBuilder.setDescription("• Querys a MCPE server! \nUsage: `j!mcpe <server> <port>`");
         embedBuilder.setColor(new Color(Variables.embedColor));
 
         return embedBuilder.build();
