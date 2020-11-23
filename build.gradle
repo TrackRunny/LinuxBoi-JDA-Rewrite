@@ -19,7 +19,7 @@ repositories {
 dependencies {
     implementation group: 'net.dv8tion', name: 'JDA', version: '4.2.0_218'
     implementation group: 'com.jagrosh', name: 'jda-utilities', version: '3.0.5'
-    implementation group: 'me.duncte123', name: 'botCommons', version: '2.0.119'
+    implementation group: 'me.duncte123', name: 'botCommons', version: '2.0.122'
     implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
     implementation group: 'org.menudocs', name: 'paste-client-java', version: '1.1.1'
     implementation group: 'io.github.cdimascio', name: 'java-dotenv', version: '5.1.3'
