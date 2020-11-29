@@ -78,6 +78,7 @@ public class CommandManager {
         addCommand(new KoalaFactCommand());
         addCommand(new CaptchaCommand());
         addCommand(new McpeCommand());
+        addCommand(new TTSCommand());
     }
 
     private void addCommand(ICommand cmd) {
