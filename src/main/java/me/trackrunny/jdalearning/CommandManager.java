@@ -79,6 +79,7 @@ public class CommandManager {
         addCommand(new CaptchaCommand());
         addCommand(new McpeCommand());
         addCommand(new TTSCommand());
+        addCommand(new RockPaperScissorsCommand());
     }
 
     private void addCommand(ICommand cmd) {
