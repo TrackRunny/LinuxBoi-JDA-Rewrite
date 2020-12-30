@@ -80,6 +80,7 @@ public class CommandManager {
         addCommand(new McpeCommand());
         addCommand(new TTSCommand());
         addCommand(new RockPaperScissorsCommand());
+        addCommand(new AppleMemeCommand());
     }
 
     private void addCommand(ICommand cmd) {
