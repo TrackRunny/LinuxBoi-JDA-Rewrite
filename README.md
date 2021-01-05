@@ -21,7 +21,7 @@
 ### ➤ Modules
 
   * Information
-  * Moderation
+  * Moderation / Admin
   * Utility
   * Fun
   * Meme
