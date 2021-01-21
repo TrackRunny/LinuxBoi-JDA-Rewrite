@@ -77,4 +77,4 @@ Everything is now set up. To start the bot you can do `java -jar JDA-LearningBot
 <!-- END OF README -->
 ## ➤ Questions / Contact me
 
-  * Discord Account: `TrackRunny#3281`
+  * Discord Account: `TrackRunny#2503`
