@@ -55,7 +55,8 @@ gradlew.bat shadowJar
 
 * Congratulations, you should now have a compiled jar located in `build/libs` directory.
 
----
+<!-- ENV'S HEADER -->
+### ➤ Setting enviroment variables
 
 Please make sure you **create** a `.env` file in the root directory where the jar file is being ran. It should have these values.
 
