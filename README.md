@@ -14,7 +14,7 @@
 
   * Rewrite for my [**LinuxBoi**](https://github.com/TrackRunny/LinuxBoi) Python bot in Java
   * Created this bot to learn the basics of the JDA library
-  * Not all commands will be re-wrote
+  * Not all commands will be re-wrote into java code
   * Adding new commands or features every couple of days when I have free time. 
 
 <!-- MODULES HEADER -->
