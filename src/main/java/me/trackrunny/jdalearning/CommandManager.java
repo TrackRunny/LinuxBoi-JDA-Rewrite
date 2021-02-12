@@ -83,6 +83,7 @@ public class CommandManager {
         addCommand(new AppleMemeCommand());
         addCommand(new MinecraftMemeCommand());
         addCommand(new BlackTwitterMeme());
+        addCommand(new WooshMemeCommand());
     }
 
     private void addCommand(ICommand cmd) {
