@@ -53,7 +53,7 @@ gradlew.bat shadowJar
 <!-- Use this if you are on Windows -->
 ```
 
-* Congratulations, you should now have a compiled jar located in `build/libs` directory.
+* Congratulations, you now have a compiled jar located in `build/libs` directory.
 
 <!-- ENV'S HEADER -->
 ### ➤ Setting enviroment variables
