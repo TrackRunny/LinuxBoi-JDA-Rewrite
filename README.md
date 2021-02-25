@@ -43,7 +43,7 @@ cd LinuxBoi-JDA-Rewrite
 <!-- Changing directories -->
 ```
 
-* Next, use gradle to build a jar file of the bot.
+* Next, use gradle to build a compiled jar file of the bot.
 
 ```markdown
 ./gradlew shadowJar
