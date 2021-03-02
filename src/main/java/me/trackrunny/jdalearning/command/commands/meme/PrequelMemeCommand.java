@@ -31,7 +31,7 @@ import net.explodingbush.ksoftapi.enums.ImageType;
 
 import java.awt.*;
 
-public class MinecraftMemeCommand implements ICommand {
+public class PrequelMemeCommand implements ICommand {
     @Override
     public void handle(CommandContext ctx) {
         final TextChannel channel = ctx.getChannel();
@@ -39,7 +39,7 @@ public class MinecraftMemeCommand implements ICommand {
         final EmbedBuilder embedBuilder = new EmbedBuilder();
 
         final KSoftAPI kSoftAPI = new KSoftAPI(Config.get("KSOFT_TOKEN"));
-        final Reddit reddit = kSoftAPI.getRedditImage(ImageType.RANDOM_REDDIT).setSubreddit("MinecraftMemes").execute();
+        final Reddit reddit = kSoftAPI.getRedditImage(ImageType.RANDOM_REDDIT).setSubreddit("PrequelMemes").execute();
 
         embedBuilder.setTitle("→ " + reddit.getTitle());
         embedBuilder.setImage(reddit.getImageUrl());
@@ -51,14 +51,14 @@ public class MinecraftMemeCommand implements ICommand {
 
     @Override
     public String getName() {
-        return "minecraftmeme";
+        return "prequelmeme";
     }
 
     @Override
     public MessageEmbed getHelp() {
         final EmbedBuilder embedBuilder = new EmbedBuilder();
         embedBuilder.setTitle("→ Command Usage");
-        embedBuilder.setDescription("• Sends out a Minecraft meme!");
+        embedBuilder.setDescription("• Sends out a prequel meme!");
         embedBuilder.setFooter(Variables.embedFooter);
         embedBuilder.setColor(new Color(Variables.embedColor));
 
