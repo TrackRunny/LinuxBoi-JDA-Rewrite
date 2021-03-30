@@ -31,7 +31,7 @@
 
 <!-- INSTALLATION HEADER -->
 ### ➤ Install and Setting up The Bot
-To start, make sure you have **OpenJDK 8 - 11** installed on your computer. Then follow the instructions below.
+To start, make sure you have **OpenJDK 8 or 11** installed on your computer. Then follow the instructions below.
 
 * First, clone the repo and change directories into it.
 
