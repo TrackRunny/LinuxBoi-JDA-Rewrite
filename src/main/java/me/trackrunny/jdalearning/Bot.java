@@ -18,10 +18,8 @@
 
 package me.trackrunny.jdalearning;
 
-import jdk.nashorn.internal.scripts.JD;
 import me.duncte123.botcommons.web.WebUtils;
 import me.trackrunny.jdalearning.database.SQLiteDataSource;
-import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
@@ -43,7 +41,7 @@ public class Bot {
 
         SQLiteDataSource.getConnection();
 
-        JDABuilder.createDefault(Config.get("token"))
+        JDABuilder.createDefault(Config.get("TOKEN"))
                 .addEventListeners(new Listener())
                 .setActivity(Activity.watching("Gradle 6.4 — \uD83D\uDC18"))
                 .setStatus(OnlineStatus.ONLINE)

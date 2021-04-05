@@ -30,14 +30,14 @@ import net.explodingbush.ksoftapi.enums.ImageType;
 
 import java.awt.*;
 
-public class MinecraftMemeCommand implements ICommand {
+public class PoliticalCompassMemeCommand implements ICommand {
     @Override
     public void handle(CommandContext ctx) {
         final TextChannel channel = ctx.getChannel();
 
         final EmbedBuilder embedBuilder = new EmbedBuilder();
 
-        final Reddit reddit = Bot.kSoftAPI.getRedditImage(ImageType.RANDOM_REDDIT).setSubreddit("MinecraftMemes").execute();
+        final Reddit reddit = Bot.kSoftAPI.getRedditImage(ImageType.RANDOM_REDDIT).setSubreddit("PoliticalCompassMemes").execute();
 
         embedBuilder.setTitle("→ " + reddit.getTitle());
         embedBuilder.setImage(reddit.getImageUrl());
@@ -49,14 +49,14 @@ public class MinecraftMemeCommand implements ICommand {
 
     @Override
     public String getName() {
-        return "minecraftmeme";
+        return "compassmeme";
     }
 
     @Override
     public MessageEmbed getHelp() {
         final EmbedBuilder embedBuilder = new EmbedBuilder();
         embedBuilder.setTitle("→ Command Usage");
-        embedBuilder.setDescription("• Sends out a Minecraft meme!");
+        embedBuilder.setDescription("• Sends out a political compass meme!");
         embedBuilder.setFooter(Variables.embedFooter);
         embedBuilder.setColor(new Color(Variables.embedColor));
 

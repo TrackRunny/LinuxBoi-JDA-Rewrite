@@ -194,6 +194,6 @@ public class Listener extends ListenerAdapter {
             e.printStackTrace();
         }
 
-        return Config.get("prefix");
+        return Config.get("PREFIX");
     }
 }
