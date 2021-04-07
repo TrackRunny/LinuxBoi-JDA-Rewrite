@@ -67,7 +67,7 @@ OWNER_ID=YOUR OWNER ID
 PREFIX="j!"
 ```
 
-Everything is now set up. To start the bot you can do `java -jar JDA-LearningBot-1.41.10-all.jar` or you may want to create a shell or bat script to do this for you.
+Everything is now set up. To start the bot you can do `java -jar JDA-LearningBot-1.42.10-all.jar` or you may want to create a shell or bat script to do this for you.
 
 <!-- LICENSE INFO -->
 ## ➤ License
